@@ -1,0 +1,129 @@
+{
+  "version": "2026.09.12.001",
+  "poll_seconds": 60,
+  "default_music_app": "youtube_music",
+  "allow_clear_action_without_wake": false,
+  "wake_phrases": [
+    "hey vinfast",
+    "hey vin fast",
+    "hey vinfat",
+    "hey vin fat",
+    "hey vin phat",
+    "hey vinphat",
+    "hay vinfast",
+    "hay vinfat"
+  ],
+  "system_prompt_extra": "Bạn đang chạy trong Tamy Car và có thể điều khiển ứng dụng thật trên điện thoại. Nếu có tool phù hợp thì phải gọi tool, không được nói rằng bạn chỉ là AI cung cấp thông tin.",
+  "rules": [
+    {
+      "id": "navigate",
+      "triggers": [
+        "dan duong den ",
+        "chi duong den ",
+        "chi duong toi ",
+        "dua toi den ",
+        "dua toi ",
+        "di den ",
+        "di toi "
+      ],
+      "action": "navigate",
+      "arg": "destination"
+    },
+    {
+      "id": "music-youtube-music",
+      "triggers": [
+        "phat nhac ",
+        "mo nhac ",
+        "nghe nhac ",
+        "phat bai ",
+        "mo bai ",
+        "nghe bai "
+      ],
+      "action": "play_music",
+      "arg": "query",
+      "app": "youtube_music"
+    },
+    {
+      "id": "music-spotify",
+      "contains": [
+        "spotify"
+      ],
+      "triggers": [
+        "phat ",
+        "mo ",
+        "nghe "
+      ],
+      "action": "play_music",
+      "arg": "query",
+      "app": "spotify"
+    },
+    {
+      "id": "music-zing",
+      "contains": [
+        "zing"
+      ],
+      "triggers": [
+        "phat ",
+        "mo ",
+        "nghe ",
+        "tim "
+      ],
+      "action": "play_music",
+      "arg": "query",
+      "app": "zing_mp3"
+    },
+    {
+      "id": "youtube-search",
+      "triggers": [
+        "tim youtube ",
+        "tim tren youtube ",
+        "youtube tim ",
+        "mo youtube tim "
+      ],
+      "action": "youtube_search",
+      "arg": "query"
+    }
+  ],
+  "open_apps": {
+    "youtube": [
+      "mo youtube",
+      "bat youtube"
+    ],
+    "youtube_music": [
+      "mo youtube music",
+      "bat youtube music"
+    ],
+    "spotify": [
+      "mo spotify",
+      "bat spotify"
+    ],
+    "zing_mp3": [
+      "mo zing",
+      "mo zing mp3",
+      "bat zing mp3"
+    ],
+    "google_maps": [
+      "mo maps",
+      "mo google maps",
+      "mo ban do"
+    ],
+    "netflix": [
+      "mo netflix",
+      "bat netflix"
+    ],
+    "tiktok": [
+      "mo tiktok",
+      "mo tik tok",
+      "bat tiktok"
+    ],
+    "facebook": [
+      "mo facebook",
+      "bat facebook"
+    ],
+    "chrome": [
+      "mo chrome",
+      "mo trinh duyet",
+      "bat chrome"
+    ]
+  }
+}
