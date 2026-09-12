@@ -1,8 +1,8 @@
 {
-  "version": "2026.09.12.001",
-  "poll_seconds": 60,
+  "version": "2026.09.12.002",
+  "poll_seconds": 30,
   "default_music_app": "youtube_music",
-  "allow_clear_action_without_wake": false,
+  "allow_clear_action_without_wake": true,
   "wake_phrases": [
     "hey vinfast",
     "hey vin fast",
@@ -13,45 +13,24 @@
     "hay vinfast",
     "hay vinfat"
   ],
-  "system_prompt_extra": "Bạn đang chạy trong Tamy Car và có thể điều khiển ứng dụng thật trên điện thoại. Nếu có tool phù hợp thì phải gọi tool, không được nói rằng bạn chỉ là AI cung cấp thông tin.",
+  "system_prompt_extra": "Bạn là Tamy trên ô tô và có khả năng điều khiển ứng dụng thật bằng tool. Khi người dùng ra lệnh mở ứng dụng, phát nhạc, tìm nhạc hoặc dẫn đường: KHÔNG giải thích, KHÔNG đọc lại câu lệnh, KHÔNG mô tả tool, KHÔNG nói bạn chỉ là AI. Hãy thực hiện hành động ngay. Sau đó chỉ nói đúng một câu cực ngắn. Mở ứng dụng hoặc phát nhạc: 'Dạ, em mở ngay ạ.' Dẫn đường: 'Dạ, em dẫn đường ngay ạ.' Nếu thao tác thất bại: 'Dạ, em chưa mở được ạ.' Ngoài các câu này không nói thêm khi xử lý lệnh. Luôn trả lời bằng tiếng Việt. Phong cách nói: nữ trẻ, dễ thương, thân thiện, giọng Nam Bộ nhẹ, hơi hướng miền Tây tự nhiên, mềm, tươi và chậm vừa; không cường điệu, không kéo chữ quá nhiều.",
   "rules": [
-    {
-      "id": "navigate",
-      "triggers": [
-        "dan duong den ",
-        "chi duong den ",
-        "chi duong toi ",
-        "dua toi den ",
-        "dua toi ",
-        "di den ",
-        "di toi "
-      ],
-      "action": "navigate",
-      "arg": "destination"
-    },
-    {
-      "id": "music-youtube-music",
-      "triggers": [
-        "phat nhac ",
-        "mo nhac ",
-        "nghe nhac ",
-        "phat bai ",
-        "mo bai ",
-        "nghe bai "
-      ],
-      "action": "play_music",
-      "arg": "query",
-      "app": "youtube_music"
-    },
     {
       "id": "music-spotify",
       "contains": [
         "spotify"
       ],
       "triggers": [
+        "phat nhac ",
+        "mo nhac ",
+        "nghe nhac ",
+        "phat bai ",
+        "mo bai ",
+        "nghe bai ",
         "phat ",
         "mo ",
-        "nghe "
+        "nghe ",
+        "tim "
       ],
       "action": "play_music",
       "arg": "query",
@@ -63,6 +42,12 @@
         "zing"
       ],
       "triggers": [
+        "phat nhac ",
+        "mo nhac ",
+        "nghe nhac ",
+        "phat bai ",
+        "mo bai ",
+        "nghe bai ",
         "phat ",
         "mo ",
         "nghe ",
@@ -73,12 +58,71 @@
       "app": "zing_mp3"
     },
     {
+      "id": "music-youtube-music-explicit",
+      "contains": [
+        "youtube music"
+      ],
+      "triggers": [
+        "phat nhac ",
+        "mo nhac ",
+        "nghe nhac ",
+        "phat bai ",
+        "mo bai ",
+        "nghe bai ",
+        "phat ",
+        "mo ",
+        "nghe ",
+        "tim "
+      ],
+      "action": "play_music",
+      "arg": "query",
+      "app": "youtube_music"
+    },
+    {
+      "id": "navigate",
+      "triggers": [
+        "dan duong den ",
+        "dan duong toi ",
+        "chi duong den ",
+        "chi duong toi ",
+        "dua toi den ",
+        "dua toi ",
+        "di den ",
+        "di toi ",
+        "mo maps dan duong den ",
+        "mo google maps dan duong den "
+      ],
+      "action": "navigate",
+      "arg": "destination"
+    },
+    {
+      "id": "music-default",
+      "triggers": [
+        "phat nhac ",
+        "mo nhac ",
+        "nghe nhac ",
+        "phat bai hat ",
+        "mo bai hat ",
+        "nghe bai hat ",
+        "phat bai ",
+        "mo bai ",
+        "nghe bai ",
+        "phat cho toi ",
+        "mo cho toi ",
+        "nghe cho toi "
+      ],
+      "action": "play_music",
+      "arg": "query",
+      "app": "youtube_music"
+    },
+    {
       "id": "youtube-search",
       "triggers": [
         "tim youtube ",
         "tim tren youtube ",
         "youtube tim ",
-        "mo youtube tim "
+        "mo youtube tim ",
+        "tim video "
       ],
       "action": "youtube_search",
       "arg": "query"
@@ -105,7 +149,8 @@
     "google_maps": [
       "mo maps",
       "mo google maps",
-      "mo ban do"
+      "mo ban do",
+      "bat maps"
     ],
     "netflix": [
       "mo netflix",
